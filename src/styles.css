@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss';
+@font-face {
+  font-family: 'elegant';
+  src: url('../public/assets/fonts/DancingScript-VariableFont_wght.ttf');
+}
+
+@plugin "daisyui" {
+  themes: light --default;
+}
+
+:root {
+  --my-color1: #dbb1b2;
+  --my-color2: #808080;
+  --my-color3: #b4b3b1;
+  --my-color4: #d6c8ad;
+}
