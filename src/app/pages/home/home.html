@@ -1,10 +1,40 @@
-<img
-  style="max-height: 1000px; width: 100vw"
-  src="https://res.cloudinary.com/ddbrs5z8v/image/upload/v1764350674/20230212_115013_e2mm8a.jpg"
-  alt="portada"
-/>
+<div class="grid grid-cols-1 md:grid-cols-6">
+  <div
+    class="md:col-span-3 flex flex-col justify-center items-start p-6 md:p-12 lg:p-16 xl:p-20 2xl:p-24 space-y-6"
+  >
+    <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-(--my-text)">
+      Más que un diagnóstico, un camino hacia tu identidad
+    </h1>
+    <p class="text-justify text-lg md:text-xl lg:text-2xl text-(--my-text)">
+      Creemos que cada persona tiene una forma única y válida de ser y sentir. Por eso te
+      acompañamos respetando tu ritmo y tu forma de estar en el mundo
+    </p>
+    <div class="flex flex-col space-x-3 gap-2.5 content-center w-full">
+      <button
+        (click)="openEvaluationForm(formtypes.EVALUATION)"
+        class="w-full bg-(--my-color1)/70 px-6 py-3 rounded-md hover:bg-(--my-color1) transition text-(--my-text)"
+      >
+        QUIERO INICIAR EVALUACION
+      </button>
+      <button
+        (click)="openEvaluationForm(formtypes.THERAPY)"
+        class="w-full bg-(--my-color3)/70 px-6 py-3 rounded-md hover:bg-(--my-color3) transition text-(--my-text)"
+      >
+        QUIERO PEDIR TURNO DE TERAPIA
+      </button>
+    </div>
+  </div>
+  <div class="md:col-span-3">
+    <img
+      style="max-height: 1000px; width: 100vw; object-fit: cover; left: 0"
+      src="https://res.cloudinary.com/ddbrs5z8v/image/upload/v1764350674/20230212_115013_e2mm8a.jpg"
+      alt="portada"
+    />
+  </div>
+</div>
 
-TITULO: "Más que un diagnóstico, un camino hacia tu identidad" BAJADA: Creemos que cada persona
-tiene una forma única y válida de ser y sentir. Por eso te acompañamos respetando tu ritmo y tu
-forma de estar en el mundo" BOTON CTA PRINCIPAL: QUIERO INICIAR EVALUACION (A) BOTON SECUNDARIO:
-QUIERO PEDIR TURNO DE TERAPIA (B)
+@if (form()=== formtypes.EVALUATION) {
+<evaluation-form />
+} @if (form()=== formtypes.THERAPY) {
+<therapy-form />
+}

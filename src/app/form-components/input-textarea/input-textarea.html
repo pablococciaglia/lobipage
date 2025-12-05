@@ -1,0 +1,21 @@
+<div [formGroup]="myForm()" class="mb-3">
+  <label class="floating-label">
+    <span class="label">{{ label() }}</span>
+    <textarea
+      style="resize: none"
+      rows="4"
+      cols="50"
+      maxlength="201"
+      [class]="`textarea text-(--my-text) ${formUtils.isValidField(myForm(), name()) ? 'border-(--my-color1) outline-(--my-color1)' : 'border-(--my-color3) outline-(--my-color3)'}`"
+      [placeholder]="placeholder()"
+      formControlName="reason"
+    ></textarea>
+
+    @if(formUtils.getfieldError(myForm(), name())) { @if(formUtils.isValidField(myForm(), name())) {
+    <br />
+    <p class="label text-(--my-error)">
+      {{ formUtils.getfieldError(myForm(), name()) }}
+    </p>
+    } }
+  </label>
+</div>

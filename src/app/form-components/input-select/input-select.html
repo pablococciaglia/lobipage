@@ -1,0 +1,23 @@
+<form [formGroup]="myForm()" class="mb-3">
+  <label class="floating-label">
+    <span class="label">{{ label() }}</span>
+    <select
+      [class]="`input text-(--my-text) ${formUtils.isValidField(myForm(), name()) ? 'border-(--my-color1) outline-(--my-color1)' : 'border-(--my-color3) outline-(--my-color3)'}`"
+      formControlName="country"
+    >
+      <option value="null" selected>{{ defaultOption() }}</option>
+      @for (option of selectOptions(); track option.code) {
+      <option [value]="option.name">
+        {{ option.name }}
+      </option>
+      }
+    </select>
+
+    @if(formUtils.getfieldError(myForm(), name())) { @if(formUtils.isValidField(myForm(), name())) {
+    <br />
+    <p class="label text-(--my-error)">
+      {{ formUtils.getfieldError(myForm(), name()) }}
+    </p>
+    } }
+  </label>
+</form>

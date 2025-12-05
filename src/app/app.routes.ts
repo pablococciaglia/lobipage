@@ -6,7 +6,7 @@ import { Services } from './pages/services/services';
 import { Faq } from './pages/faq/faq';
 import { Contact } from './pages/contact/contact';
 import { MyTeam } from './pages/my-team/my-team';
-import { RoutesPaths } from './interfaces/routes.interfaces';
+import { RoutesPaths } from './interfaces/routes.interface';
 
 export const routes: Routes = [
   {

@@ -1,121 +1,21 @@
 <app-title title="Contacto" />
+<div class="flex flex-col space-x-3 gap-2.5 content-center w-full">
+  <button
+    (click)="openEvaluationForm(formtypes.EVALUATION)"
+    class="w-full bg-(--my-color1)/70 px-6 py-3 rounded-md hover:bg-(--my-color1) transition text-(--my-text)"
+  >
+    QUIERO INICIAR EVALUACION
+  </button>
+  <button
+    (click)="openEvaluationForm(formtypes.THERAPY)"
+    class="w-full bg-(--my-color3)/70 px-6 py-3 rounded-md hover:bg-(--my-color3) transition text-(--my-text)"
+  >
+    QUIERO PEDIR TURNO DE TERAPIA
+  </button>
+</div>
 
-<pre>
-(C)MODELO DE FORMULARIO CON BIFURCACION
-Campo: Elegí el motivo de contacto
-Opciones a desplegarse:
-•	Iniciar Terapia
-•	Iniciar Evaluación
-Si elige Terapia
-Mostrar estos campos a completar:
-1. Nombre y apellido
-2. Teléfono celular
-3. Correo electrónico
-4. País de residencia
-5. ¿Cuál es tu motivo de consulta? (Campo de texto breve)
-6. ¿ Tenés diagnóstico? SI/NO
-
-7. ¿Buscás turno para vos o para otra persona (ej. tu hijo/a)?
-8. ¿Ya realizaste una entrevista de admisión?
-•	Sí, quiero continuar con un profesional
-•	No, necesito hacer la admisión primero
-•	9. Edad de la persona que recibirá la terapia
-10.¿Cuál es tu preferencia de contacto? (Whasap/Correo electrónico)
-
-CTA final:
-QUIERO SOLICITAR UN TURNO
-Texto final: Gracias por contactarte. En breve nos comunicaremos por WhatsApp o correo electrónico para coordinar tu turno.
-Si elige Evaluación
-Campo: Elegí la opción que te interesa:
-Opciones:
-1.	Realizar una entrevista de orientación
-( Texto visible: si tenés dudas y necesitás te guiemos)
-2.	Iniciar una evaluación específica
-(Texto visible: si ya sabes qué querés realizar la evaluación)
-
-Si elige “Entrevista de orientación”
-Campos:
-•	Nombre y apellido
-•	Teléfono celular
-•	Correo electrónico
-•	País de residencia
-•	Motivo de la consulta / dudas principales (campo de texto breve)
-•	Edad de la persona a evaluar
-
-QUIERO SOLICITAR ENTREVISTA DE ORIENTACIÓN
-
-Texto final:  Gracias por contactarte. En breve te escribiremos para coordinar la entrevista y orientarte sobre el tipo de evaluación más adecuada.
-
- Si elige “Evaluación específica”
-Campos:
-•	Nombre y apellido
-•	Teléfono celular
-•	Correo electrónico
-•	País de residencia
-•	Tipo de evaluación que desea realizar
-(Opciones múltiple: Autismo / TDAH / Ansiedad / TOC/Otro)
-•	¿Ya realizó alguna evaluación previa? (Sí / No)
-•	Edad de la persona a evaluar
-CTA final: QUIERO INICIAR EVALUACIÓN
-Texto final: Gracias por contactarte.  En breve nos comunicaremos para coordinar la fecha y enviar el detalle del proceso.
-Aclaraciones:
-•	Usar en lo posible un formulario tipo “paso a paso” (multi-step) para no abrumar al usuario.
-•	 Adaptar el form  a formato celular.
-•	Permitir formato donde se pueda reanudar el form en caso lo haya dejado incompleto.
-(A)	FORMULARIO DE EVALUACION QUE ACOMPAÑA FOTO DE VALE Y TEXO BREVE:
-Campo: Elegí la opción que te interesa:
-Opciones:
-3.	Realizar una entrevista de orientación
-( Texto visible: si tenés dudas y necesitás te guiemos)
-4.	Iniciar una evaluación específica
-(Texto visible: si ya sabes qué querés realizar la evaluación)
-
-Si elige “Entrevista de orientación”
-Campos:
-•	Nombre y apellido
-•	Teléfono celular
-•	Correo electrónico
-•	País de residencia
-•	Edad de la persona a evaluar
-•	Motivo de la consulta / dudas principales (campo de texto breve)
-QUIERO SOLICITAR ENTREVISTA DE ORIENTACIÓN
-
-Texto final: Te contactaremos para coordinar la entrevista y orientarte sobre el tipo de evaluación más adecuada.
-
- Si elige “Evaluación específica”
-Campos:
-•	Nombre y apellido
-•	Teléfono celular
-•	Correo electrónico
-•	País de residencia
-•	Tipo de evaluación que desea realizar
-(Opciones múltiple: Autismo / TDAH / Ansiedad / TOC/Otro)
-•	¿Ya realizó alguna evaluación previa? (Sí / No)
-•	Edad de la persona a evaluar
-CTA final:
-QUIERO INICIAR EVALUACIÓN
-Texto Final: Gracias por contactarte. En breve nos comunicaremos por WhatsApp o correo electrónico para coordinar tu turno. 
-(B)FORMULARIO SECUNDARIO DE QUIERO INICIAR TERAPIA:
-Si elige Terapia
-Mostrar estos campos a completar:
-1. Nombre y apellido
-2. Teléfono celular
-3. Correo electrónico
-4. País de residencia
-5. ¿Cuál es tu motivo de consulta? (Campo de texto breve)
-6. ¿Ya realizaste una entrevista de admisión?
-•	Sí, quiero continuar con un profesional
-•	No, necesito hacer la admisión primero
-7. ¿ Tenés diagnóstico? SI/NO
-8. ¿Buscás turno para vos o para otra persona (ej. tu hijo/a)?
-9. Edad de la persona que recibirá la terapia
-CTA final:
-QUIERO SOLICITAR UN TURNO
-Texto final: Gracias por contactarte. Nos comunicaremos por WhatsApp o correo electrónico para coordinar tu turno.
-FOOTER:
-Intagram:https://www.instagram.com/psicovalgodoy/
-Facebook: https://www.facebook.com/share/1DeeParqcP/
-Tik Tok:@psicovaldogoy
-You tube: @psicovaldogoy
-Whasap: +54 11 3124-2384
-</pre>
+@if (form()=== formtypes.EVALUATION) {
+<evaluation-form />
+} @if (form()=== formtypes.THERAPY) {
+<therapy-form />
+}
