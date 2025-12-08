@@ -22,7 +22,7 @@ export class TherapyForm {
   myForm: FormGroup = this.fb.group({
     name: [null, [Validators.required, Validators.pattern(this.formUtils.namePattern)]],
     email: [null, [Validators.required, Validators.pattern(this.formUtils.emailPattern)]],
-    country: [null, [Validators.required]],
+    country: ['', [Validators.required]],
     diagnose: [null, [Validators.required]],
     phone: [null, [Validators.required, Validators.minLength(7)]],
     reason: [null, [Validators.required, Validators.maxLength(200)]],

@@ -33,7 +33,7 @@ export class EvaluationForm {
     alreadyEvaluated: [null],
     appointmentFor: [null, [Validators.required]],
     contactPreference: [null, [Validators.required]],
-    country: [null, [Validators.required]],
+    country: ['', [Validators.required]],
     email: [null, [Validators.required, Validators.pattern(this.formUtils.emailPattern)]],
     evaluationType: [null],
     name: [null, [Validators.required, Validators.pattern(this.formUtils.namePattern)]],
