@@ -1,10 +1,10 @@
-<label class="floating-label mb-3" [formGroup]="myForm()">
+<label [formGroup]="myForm()" class="floating-label mb-3">
   <span class="label">{{ label() }}</span>
   <select
     [class]="`input text-(--my-text) ${formUtils.isValidField(myForm(), name()) ? 'border-(--my-color1) outline-(--my-color1)' : 'border-(--my-color3) outline-(--my-color3)'}`"
     formControlName="country"
   >
-    <option [value]="undefined" selected>{{ defaultOption() }}</option>
+    <option selected="selected" value="">{{ defaultOption() }}</option>
     @for (option of selectOptions(); track option.code) {
     <option [value]="option.name">
       {{ option.name }}

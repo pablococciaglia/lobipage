@@ -12,6 +12,7 @@ export class InputText {
   myForm = input.required<FormGroup<any>>();
   name = input.required<string>();
   label = input.required<string>();
+  autocomplete = input.required<string>();
   placeholder = input<string>('');
   type = input<string>('text');
 }

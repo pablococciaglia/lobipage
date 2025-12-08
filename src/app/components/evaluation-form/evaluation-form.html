@@ -28,10 +28,21 @@
         @if (myForm.value.orioeva) {
 
         <!-- Name -->
-        <app-input-text label="Nombre y apellido" [myForm]="myForm" name="name" />
+        <app-input-text
+          label="Nombre y apellido"
+          [myForm]="myForm"
+          name="name"
+          autocomplete="name"
+        />
 
         <!-- Email -->
-        <app-input-text label="E-mail" [myForm]="myForm" name="email" type="email" />
+        <app-input-text
+          label="E-mail"
+          [myForm]="myForm"
+          name="email"
+          type="email"
+          autocomplete="email"
+        />
 
         <!-- Country -->
         <app-input-select
@@ -43,7 +54,13 @@
         />
 
         <!-- Teléfono celular -->
-        <app-input-text label="Teléfono celular" [myForm]="myForm" name="phone" type="tel" />
+        <app-input-text
+          label="Teléfono celular"
+          [myForm]="myForm"
+          name="phone"
+          type="tel"
+          autocomplete="phone"
+        />
 
         @if (myForm.value.orioeva === formOptions.ORIENTACION) {
         <!-- Motivo de consulta -->

@@ -6,10 +6,21 @@
     <div class="grid grid-cols-1 md:grid-cols-6">
       <div class="md:col-span-3 space-y-3">
         <!-- Name and surname -->
-        <app-input-text label="Nombre y apellido" [myForm]="myForm" name="name" />
+        <app-input-text
+          label="Nombre y apellido"
+          [myForm]="myForm"
+          name="name"
+          autocomplete="name"
+        />
 
         <!-- Email -->
-        <app-input-text label="E-mail" [myForm]="myForm" name="email" type="email" />
+        <app-input-text
+          label="E-mail"
+          [myForm]="myForm"
+          name="email"
+          type="email"
+          autocomplete="email"
+        />
 
         <!-- Country -->
         <app-input-select
@@ -21,7 +32,13 @@
         />
 
         <!-- Teléfono celular -->
-        <app-input-text label="Teléfono celular" [myForm]="myForm" name="phone" type="tel" />
+        <app-input-text
+          label="Teléfono celular"
+          [myForm]="myForm"
+          name="phone"
+          type="tel"
+          autocomplete="phone"
+        />
 
         <!-- Motivo de consulta -->
         <app-input-textarea
@@ -63,7 +80,12 @@
 
         @if(myForm.value.hasDiagnose === hasDiagnose.HAS_DIAGNOSE) {
         <!-- diagnose -->
-        <app-input-text label="¿Qué diagnóstico tiene?" [myForm]="myForm" name="diagnose" />
+        <app-input-text
+          label="¿Qué diagnóstico tiene?"
+          [myForm]="myForm"
+          name="diagnose"
+          autocomplete=""
+        />
         }
 
         <!-- For you or not -->
