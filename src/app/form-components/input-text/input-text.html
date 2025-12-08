@@ -1,16 +1,14 @@
-<div [formGroup]="myForm()" class="mb-3">
-  <label class="floating-label">
-    <span class="label">{{ label() }}</span>
-    <input
-      [type]="type()"
-      [class]="`input text-(--my-text) ${formUtils.isValidField(myForm(), name()) ? 'border-(--my-color1) outline-(--my-color1)' : 'border-(--my-color3) outline-(--my-color3)'}`"
-      placeholder="{{ placeholder() || label() }}"
-      formControlName="{{ name() }}"
-    />
-    @if(formUtils.isValidField(myForm(), name())) {
-    <p class="label text-(--my-error)">
-      {{ formUtils.getfieldError(myForm(), name()) }}
-    </p>
-    }
-  </label>
-</div>
+<label class="floating-label mb-3" [formGroup]="myForm()">
+  <span class="label">{{ label() }}</span>
+  <input
+    [type]="type()"
+    [class]="`input text-(--my-text) ${formUtils.isValidField(myForm(), name()) ? 'border-(--my-color1) outline-(--my-color1)' : 'border-(--my-color3) outline-(--my-color3)'}`"
+    placeholder="{{ placeholder() || label() }}"
+    formControlName="{{ name() }}"
+  />
+  @if(formUtils.isValidField(myForm(), name())) {
+  <p class="label text-(--my-error)">
+    {{ formUtils.getfieldError(myForm(), name()) }}
+  </p>
+  }
+</label>
