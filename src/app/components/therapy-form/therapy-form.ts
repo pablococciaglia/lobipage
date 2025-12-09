@@ -30,7 +30,7 @@ export class TherapyForm {
   hasDiagnose: typeof HasDiagnoseOptions = HasDiagnoseOptions;
   countries = signal<Country[]>(countries);
   myForm: FormGroup = this.fb.group({
-    name: [null, [Validators.required, Validators.pattern(this.formUtils.namePattern)]],
+    name: [null, [Validators.required]],
     email: [null, [Validators.required, Validators.pattern(this.formUtils.emailPattern)]],
     country: ['', [Validators.required]],
     diagnose: [null, [Validators.required]],
@@ -70,6 +70,7 @@ export class TherapyForm {
       return;
     }
     this.myForm.reset();
+
     this.submited.set(true);
     setTimeout(() => {
       this.submited.set(false);

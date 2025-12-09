@@ -9,7 +9,6 @@ async function justWait() {
 }
 export class FormUtils {
   static passwordPattern = '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^A-Za-z0-9]).{8,}$';
-  static namePattern = "^[a-z ,.'-]+$";
   static emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$';
   static notOnlySpacesPattern = '^[a-zA-Z0-9]+$';
   static onlyNumbersPattern = '^[0-9]+$'; // ^[0-9]*$
@@ -43,12 +42,6 @@ export class FormUtils {
           }
           if (errors['pattern'].requiredPattern === FormUtils.passwordPattern) {
             return 'Debe tener al menos 1 número, 1 letra minúscula, 1 letra mayúscula y 1 símbolo';
-          }
-          if (errors['pattern'].requiredPattern === FormUtils.namePattern) {
-            return 'El nombre y apellido no tienen el formato correcto';
-          }
-          if (errors['pattern'].requiredPattern === FormUtils.namePattern) {
-            return 'El nombre y apellido no tienen el formato correcto';
           }
           if (errors['pattern'].requiredPattern === FormUtils.onlyNumbersPattern) {
             return 'El valor ingresado no tiene un formato válido';

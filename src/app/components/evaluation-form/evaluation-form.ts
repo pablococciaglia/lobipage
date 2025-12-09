@@ -46,7 +46,7 @@ export class EvaluationForm {
     country: ['', [Validators.required]],
     email: [null, [Validators.required, Validators.pattern(this.formUtils.emailPattern)]],
     evaluationType: [null],
-    name: [null, [Validators.required, Validators.pattern(this.formUtils.namePattern)]],
+    name: [null, [Validators.required]],
     orioeva: [null, [Validators.required]],
     phone: [null, [Validators.required, Validators.minLength(7)]],
     reason: [null],
