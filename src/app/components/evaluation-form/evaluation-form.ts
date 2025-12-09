@@ -8,15 +8,25 @@ import { InputTextarea } from '../../form-components/input-textarea/input-textar
 import { InputRadio } from '../../form-components/input-radio/input-radio';
 import { InputNumber } from '../../form-components/input-number/input-number';
 import { InputText } from '../../form-components/input-text/input-text';
+import { AlertSuccess } from '../../form-components/alert-success/alert-success';
 
 @Component({
   selector: 'evaluation-form',
-  imports: [ReactiveFormsModule, InputText, InputNumber, InputRadio, InputTextarea, InputSelect],
+  imports: [
+    ReactiveFormsModule,
+    InputText,
+    InputNumber,
+    InputRadio,
+    InputTextarea,
+    InputSelect,
+    AlertSuccess,
+  ],
   templateUrl: './evaluation-form.html',
 })
 export class EvaluationForm {
   private fb = inject(FormBuilder);
   formOptions: typeof FormOptions = FormOptions;
+  submited = signal(false);
 
   formUtils = FormUtils;
   countries = signal<Country[]>(countries);
@@ -62,11 +72,15 @@ export class EvaluationForm {
   }
 
   submitForm() {
-    console.log(this.myForm.value);
     if (this.myForm.invalid) {
       this.myForm.markAllAsTouched();
       return;
     }
+    this.submited.set(true);
+    setTimeout(() => {
+      this.submited.set(false);
+      this.myForm.reset();
+    }, 3000);
     console.log(this.myForm.value);
   }
 }

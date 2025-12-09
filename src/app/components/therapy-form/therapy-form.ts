@@ -8,14 +8,24 @@ import { InputRadio } from '../../form-components/input-radio/input-radio';
 import { InputTextarea } from '../../form-components/input-textarea/input-textarea';
 import { InputSelect } from '../../form-components/input-select/input-select';
 import { HasDiagnoseOptions } from '../../interfaces/form.interface';
+import { AlertSuccess } from '../../form-components/alert-success/alert-success';
 
 @Component({
   selector: 'therapy-form',
-  imports: [ReactiveFormsModule, InputText, InputNumber, InputRadio, InputTextarea, InputSelect],
+  imports: [
+    ReactiveFormsModule,
+    InputText,
+    InputNumber,
+    InputRadio,
+    InputTextarea,
+    InputSelect,
+    AlertSuccess,
+  ],
   templateUrl: './therapy-form.html',
 })
 export class TherapyForm {
   private fb = inject(FormBuilder);
+  submited = signal(false);
   formUtils = FormUtils;
   hasDiagnose: typeof HasDiagnoseOptions = HasDiagnoseOptions;
   countries = signal<Country[]>(countries);
@@ -59,6 +69,11 @@ export class TherapyForm {
       this.myForm.markAllAsTouched();
       return;
     }
+    this.myForm.reset();
+    this.submited.set(true);
+    setTimeout(() => {
+      this.submited.set(false);
+    }, 3000);
     console.log(this.myForm.value);
   }
 }
