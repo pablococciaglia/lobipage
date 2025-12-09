@@ -153,7 +153,7 @@
             { label: 'Correo electrónico', value: 'Correo electrónico' }
           ]"
         />
-
+        @if(!submited()){
         <button
           class="w-full bg-(--my-color3)/70 px-6 py-3 rounded-md hover:bg-(--my-color3) transition text-(--my-text)"
           type="submit"
@@ -162,9 +162,8 @@
             myForm.value.orioeva === formOptions.ORIENTACION
               ? 'QUIERO SOLICITAR ENTREVISTA DE ORIENTACIÓN'
               : 'QUIERO INICIAR EVALUACIÓN'
-          }}
-        </button>
-        @if(submited()){
+          }}</button
+        >} @else {
         <alert-success
           [text]="
             myForm.value.orioeva === formOptions.ORIENTACION

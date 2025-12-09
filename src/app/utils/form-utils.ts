@@ -9,7 +9,7 @@ async function justWait() {
 }
 export class FormUtils {
   static passwordPattern = '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^A-Za-z0-9]).{8,}$';
-  static namePattern = '^([a-zA-Z]+) ([a-zA-Z]+)$';
+  static namePattern = "^[a-z ,.'-]+$";
   static emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$';
   static notOnlySpacesPattern = '^[a-zA-Z0-9]+$';
   static onlyNumbersPattern = '^[0-9]+$'; // ^[0-9]*$
