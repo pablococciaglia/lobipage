@@ -29,10 +29,10 @@ export const appRoutes = [
     path: RoutesPaths.SERVICES,
     label: RoutesLabels.SERVICES,
   },
-  {
-    path: RoutesPaths.BLOG,
-    label: RoutesLabels.BLOG,
-  },
+  // {
+  //   path: RoutesPaths.BLOG,
+  //   label: RoutesLabels.BLOG,
+  // },
   {
     path: RoutesPaths.FAQ,
     label: RoutesLabels.FAQ,

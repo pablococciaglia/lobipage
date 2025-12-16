@@ -11,10 +11,10 @@
 
 :root {
   --my-color1: #dbb1b2;
-  --my-error: #da7a7c;
-  --my-color2: #808080;
+  --my-color2: #d6c8ad;
   --my-color3: #cecdca;
-  --my-color4: #d6c8ad;
+  --dark-grey: #808080;
   --my-success: #add6ba;
+  --my-error: #da7a7c;
   --my-text: #3f3f3f;
 }

@@ -69,12 +69,12 @@ export class TherapyForm {
       this.myForm.markAllAsTouched();
       return;
     }
-    this.myForm.reset();
+    console.log(this.myForm.value);
 
     this.submited.set(true);
     setTimeout(() => {
       this.submited.set(false);
+      this.myForm.reset();
     }, 3000);
-    console.log(this.myForm.value);
   }
 }

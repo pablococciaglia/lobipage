@@ -76,11 +76,11 @@ export class EvaluationForm {
       this.myForm.markAllAsTouched();
       return;
     }
+    console.log(this.myForm.value);
     this.submited.set(true);
     setTimeout(() => {
       this.submited.set(false);
       this.myForm.reset();
     }, 3000);
-    console.log(this.myForm.value);
   }
 }
