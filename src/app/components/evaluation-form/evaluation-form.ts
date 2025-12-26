@@ -2,13 +2,15 @@ import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FormUtils } from '../../utils/form-utils';
 import { countries, Country } from '../../interfaces/country.interface';
-import { FormOptions } from '../../interfaces/form.interface';
+import { AlreadyEvaluated, EvaluationType, FormOptions } from '../../interfaces/form.interface';
 import { InputSelect } from '../../form-components/input-select/input-select';
 import { InputTextarea } from '../../form-components/input-textarea/input-textarea';
 import { InputRadio } from '../../form-components/input-radio/input-radio';
 import { InputNumber } from '../../form-components/input-number/input-number';
 import { InputText } from '../../form-components/input-text/input-text';
 import { AlertSuccess } from '../../form-components/alert-success/alert-success';
+import { EmailService } from '../../service/email';
+import { Endpoints } from '../../service/endpoints';
 
 @Component({
   selector: 'evaluation-form',
@@ -24,8 +26,11 @@ import { AlertSuccess } from '../../form-components/alert-success/alert-success'
   templateUrl: './evaluation-form.html',
 })
 export class EvaluationForm {
+  emailService = inject(EmailService);
   private fb = inject(FormBuilder);
   formOptions: typeof FormOptions = FormOptions;
+  alreadyEvaluated: typeof AlreadyEvaluated = AlreadyEvaluated;
+  evaluationType: typeof EvaluationType = EvaluationType;
   submited = signal(false);
 
   formUtils = FormUtils;
@@ -72,15 +77,23 @@ export class EvaluationForm {
   }
 
   submitForm() {
+    this.myForm.markAllAsTouched();
     if (this.myForm.invalid) {
-      this.myForm.markAllAsTouched();
       return;
     }
-    console.log(this.myForm.value);
-    this.submited.set(true);
-    setTimeout(() => {
-      this.submited.set(false);
-      this.myForm.reset();
-    }, 3000);
+    this.emailService
+      .sendForm(
+        this.myForm.value,
+        this.myForm.value.orioeva === this.formOptions.ORIENTACION
+          ? Endpoints.ORIENTATION
+          : Endpoints.EVALUATION
+      )
+      .subscribe((resp) => {
+        this.submited.set(true);
+        setTimeout(() => {
+          this.submited.set(false);
+          this.myForm.reset();
+        }, 3000);
+      });
   }
 }

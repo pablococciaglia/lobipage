@@ -123,11 +123,11 @@
           name="evaluationType"
           question="¿Qué tipo de evaluación deseas realizar?"
           [options]="[
-            { label: 'Autismo', value: 'Autismo' },
-            { label: 'TDAH', value: 'TDAH' },
-            { label: 'Ansiedad', value: 'Ansiedad' },
-            { label: 'TOC', value: 'TOC' },
-            { label: 'Otro', value: 'Otro' }
+            { label: 'Autismo', value: evaluationType.AUTISMO },
+            { label: 'TDAH', value: evaluationType.TDAH },
+            { label: 'Ansiedad', value: evaluationType.ANSIEDAD },
+            { label: 'TOC', value: evaluationType.TOC },
+            { label: 'Otro', value: evaluationType.OTRO }
           ]"
         />
 
@@ -137,8 +137,8 @@
           name="alreadyEvaluated"
           question="¿Ya realizó alguna evaluación previa?"
           [options]="[
-            { label: 'Sí', value: 'Sí, ya realicé una evaluación previa' },
-            { label: 'No', value: 'No, no he realizado una evaluación previa' }
+            { label: 'Sí', value: alreadyEvaluated.YES },
+            { label: 'No', value: alreadyEvaluated.NO }
           ]"
         />
         }

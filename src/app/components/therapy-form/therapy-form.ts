@@ -7,8 +7,15 @@ import { InputNumber } from '../../form-components/input-number/input-number';
 import { InputRadio } from '../../form-components/input-radio/input-radio';
 import { InputTextarea } from '../../form-components/input-textarea/input-textarea';
 import { InputSelect } from '../../form-components/input-select/input-select';
-import { HasDiagnoseOptions } from '../../interfaces/form.interface';
+import {
+  HasDiagnose,
+  Admission,
+  AppointmentFor,
+  ContactPreference,
+} from '../../interfaces/form.interface';
 import { AlertSuccess } from '../../form-components/alert-success/alert-success';
+import { EmailService } from '../../service/email';
+import { Endpoints } from '../../service/endpoints';
 
 @Component({
   selector: 'therapy-form',
@@ -27,7 +34,13 @@ export class TherapyForm {
   private fb = inject(FormBuilder);
   submited = signal(false);
   formUtils = FormUtils;
-  hasDiagnose: typeof HasDiagnoseOptions = HasDiagnoseOptions;
+
+  hasDiagnose: typeof HasDiagnose = HasDiagnose;
+  admission: typeof Admission = Admission;
+  appointmentFor: typeof AppointmentFor = AppointmentFor;
+  contactPreference: typeof ContactPreference = ContactPreference;
+
+  emailService = inject(EmailService);
   countries = signal<Country[]>(countries);
   myForm: FormGroup = this.fb.group({
     name: [null, [Validators.required]],
@@ -65,16 +78,20 @@ export class TherapyForm {
   }
 
   submitForm() {
+    this.myForm.markAllAsTouched();
     if (this.myForm.invalid) {
-      this.myForm.markAllAsTouched();
       return;
     }
-    console.log(this.myForm.value);
+    this.emailService.sendForm(this.myForm.value, Endpoints.THERAPY).subscribe((resp) => {
+      if (resp) {
+        console.log('pablinchi ', resp);
+      }
 
-    this.submited.set(true);
-    setTimeout(() => {
-      this.submited.set(false);
-      this.myForm.reset();
-    }, 3000);
+      this.submited.set(true);
+      setTimeout(() => {
+        this.submited.set(false);
+        this.myForm.reset();
+      }, 3000);
+    });
   }
 }

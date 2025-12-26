@@ -59,11 +59,11 @@
           [options]="[
             {
               label: 'Sí, quiero continuar con un profesional',
-              value: 'Ya realizo una entrevista de admisión'
+              value: admission.YES
             },
             {
               label: 'No, necesito hacer la admisión primero',
-              value: 'Necesita entrevista de admisión'
+              value: admission.NO
             }
           ]"
         />
@@ -97,8 +97,8 @@
           name="appointmentFor"
           question="¿Buscás turno para vos o para otra persona (ej. tu hijo/a)?"
           [options]="[
-            { label: 'Para mí', value: 'Para mí' },
-            { label: 'Para otra persona', value: 'Para otra persona' }
+            { label: 'Para mí', value: appointmentFor.ME },
+            { label: 'Para otra persona', value: appointmentFor.OTHER_PERSON }
           ]"
         />
 
@@ -116,8 +116,8 @@
           name="contactPreference"
           question="¿Cuál es tu preferencia de contacto?"
           [options]="[
-            { label: 'WhatsApp', value: 'WhatsApp' },
-            { label: 'Correo electrónico', value: 'Correo electrónico' }
+            { label: 'WhatsApp', value: contactPreference.WHATSAPP },
+            { label: 'Correo electrónico', value: contactPreference.EMAIL }
           ]"
         />
         @if(!submited()){
