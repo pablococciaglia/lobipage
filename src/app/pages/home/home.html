@@ -1,6 +1,6 @@
 <div class="grid grid-cols-1 md:grid-cols-6">
   <div
-    class="md:col-span-3 flex flex-col justify-center items-start p-6 md:p-12 lg:p-16 xl:p-20 2xl:p-24 space-y-6"
+    class="md:col-span-3 flex flex-col justify-center items-start p-6 md:p-12 lg:p-16 xl:p-20 2xl:p-24 space-y-6 overflow-visible z-10"
   >
     <h1 class="text-3xl md:text-2xl lg:text-4xl font-bold text-(--my-text)">
       Más&nbsp;que&nbsp;un&nbsp;diagnóstico, un&nbsp;camino&nbsp;hacia&nbsp;tu&nbsp;identidad
@@ -27,15 +27,16 @@
   <div class="md:col-span-3">
     <img
       style="max-height: 1000px; width: 100vw; object-fit: cover; left: 0"
-      src="https://res.cloudinary.com/ddbrs5z8v/image/upload/v1764350674/20230212_115013_e2mm8a.jpg"
+      src="https://res.cloudinary.com/ddbrs5z8v/image/upload/v1768930200/portada1_nabaxq.png"
       alt="portada"
     />
   </div>
 </div>
 <div #scrollHere></div>
 
-@if (form()=== formtypes.EVALUATION) {
-<evaluation-form />
-} @if (form()=== formtypes.THERAPY) {
-<therapy-form />
+@if (form() === formtypes.EVALUATION) {
+  <evaluation-form />
+}
+@if (form() === formtypes.THERAPY) {
+  <therapy-form />
 }
