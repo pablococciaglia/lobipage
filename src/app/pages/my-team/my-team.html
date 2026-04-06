@@ -28,7 +28,10 @@
       <div>
         <img
           class="size-10 rounded-box"
-          src="https://img.daisyui.com/images/profile/demo/3@94.webp"
+          [src]="
+            worker.photo ||
+            'https://res.cloudinary.com/ddbrs5z8v/image/upload/q_auto/f_auto/v1775512354/avatar_vf6qh3.webp'
+          "
         />
       </div>
       <div class="flex">
