@@ -1,3 +1,3 @@
 export const environment = {
-  baseURL: 'https://mailer-back.cloud/',
+  baseURL: 'https://mailer-back.cloud',
 };
