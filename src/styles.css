@@ -9,6 +9,23 @@
   themes: light --default;
 }
 
+body {
+  /* Ruta de la imagen tomando en cuenta la carpeta assets */
+  background-image: url('./assets/background.jpg'); 
+  
+  /* La imagen cubre todo el tamaño sin deformarse */
+  background-size: cover; 
+  
+  /* Centra la imagen en la pantalla */
+  background-position: center center; 
+  
+  /* Evita que la imagen se repita como mosaico */
+  background-repeat: no-repeat; 
+  
+  /* Mantiene la imagen fija al hacer scroll */
+  background-attachment: fixed; 
+}
+
 :root {
   --my-color1: #dbb1b2;
   --my-color2: #d6c8ad;
@@ -17,4 +34,5 @@
   --my-success: #add6ba;
   --my-error: #da7a7c;
   --my-text: #3f3f3f;
+  --gradient: linear-gradient(90deg,rgba(214, 200, 173, 1) 0%, rgba(237, 221, 83, 0) 100%);
 }

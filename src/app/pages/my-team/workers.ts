@@ -38,12 +38,15 @@ export const coworkers = [
   },
   {
     name: 'Lic. Paula Palacios',
+    photo:
+      'https://res.cloudinary.com/ddbrs5z8v/image/upload/v1781626740/Copilot_20260616_181743_gbjdfx.png',
     diploma: 'Lic. en Psicopedagogía',
     description:
       'Psicopedagoga recibida en Universidad General San Martín. Tratamiento a niños, adolescentes y adultos.',
   },
   {
     name: 'Lic. Daniela Di Stéfano',
+    photo: 'https://res.cloudinary.com/ddbrs5z8v/image/upload/v1781305186/distefano_dermth2.png',
     diploma: 'Lic. En Terapia Ocupacional',
     description:
       'Terapista Ocupacional recibida en Universidad de Buenos Aires. Especializada en Evaluación y Tratamiento de Perfiles Sensoriales.',

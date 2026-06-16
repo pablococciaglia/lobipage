@@ -1,24 +1,31 @@
 <div [formGroup]="myForm()" class="form-group flex flex-col gap-2 mb-3">
   <label
-    [class]="`text-base ${formUtils.isValidField(myForm(), name()) ? 'text-(--my-color1)' : 'text-(--my-text)'}`"
+    [class]="
+      `text-base font-bold ${formUtils.isValidField(myForm(), name()) ? 'text-(--my-color1)' : 'text-(--my-text)'}`
+    "
   >
     {{ question() }}
   </label>
   @for (option of options(); track option.value) {
-  <div>
-    <input
-      class="radio radio-sm bg-(--my-color3) border-(--dark-grey) checked:bg-(--my-color3) checked:text-(--dark-grey) checked:border-(--dark-grey)"
-      type="radio"
-      [value]="option.value"
-      [id]="option.value"
-      [formControlName]="name()"
-      (change)="actionChange.emit()"
-    />
-    <label class="text text-(--my-text)" [for]="option.value"> {{ option.label }} </label>
-  </div>
-  } @if(formUtils.getfieldError(myForm(), name())) { @if(formUtils.isValidField(myForm(), name())) {
-  <p class="label text-(--my-error)">
-    {{ formUtils.getfieldError(myForm(), name()) }}
-  </p>
-  } }
+    <div>
+      <input
+        class="radio radio-sm bg-(--my-color3) border-(--dark-grey) checked:bg-(--my-color3) checked:text-(--dark-grey) checked:border-(--dark-grey)"
+        type="radio"
+        [value]="option.value"
+        [id]="option.value"
+        [formControlName]="name()"
+        (change)="actionChange.emit()"
+      />
+      <label class="text text-base text-(--my-text)" [for]="option.value">
+        {{ option.label }}
+      </label>
+    </div>
+  }
+  @if (formUtils.getfieldError(myForm(), name())) {
+    @if (formUtils.isValidField(myForm(), name())) {
+      <p class="label text-(--my-error)">
+        {{ formUtils.getfieldError(myForm(), name()) }}
+      </p>
+    }
+  }
 </div>

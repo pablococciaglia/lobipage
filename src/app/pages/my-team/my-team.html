@@ -22,10 +22,10 @@
   </p>
 </page-layout>
 
-<ul class="list bg-base-100 rounded-box mt-5 shadow-md text-shadow-stone-600">
+<ul class="list bg-base-100 rounded-box mt-5 shadow-md text-shadow-stone-600 gap-2">
   @for (worker of cowerkers; track worker.name) {
-    <li class="list-row after:border-b-(--my-color1)">
-      <div>
+    <li class="list-col-wrap border border-(--my-color2) rounded-box">
+      <div class="flex gap-2 items-center p-1 bg-linear-to-r from-(--my-color2) to-transparent">
         <img
           class="size-10 rounded-box"
           [src]="
@@ -33,13 +33,13 @@
             'https://res.cloudinary.com/ddbrs5z8v/image/upload/q_auto/f_auto/v1775512354/avatar_vf6qh3.webp'
           "
         />
-      </div>
-      <div class="flex">
         <div class="min-w-fit">
-          <div>{{ worker.name }}</div>
+          <div class="text-base">{{ worker.name }}</div>
           <div class="uppercase font-semibold opacity-60">{{ worker.diploma }}</div>
         </div>
-        <p class="list-col-wrap border-l-4 border-(--my-color2) pl-4 ml-4">
+      </div>
+      <div class="flex px-5">
+        <p class="list-col-wrap text-base text-justify">
           {{ worker.description }}
         </p>
       </div>
