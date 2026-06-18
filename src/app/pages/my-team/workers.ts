@@ -56,6 +56,7 @@ export const coworkers = [
     photo:
       'https://res.cloudinary.com/ddbrs5z8v/image/upload/q_auto/f_auto/v1775513109/laurasinfondo_l6mfar.png',
     diploma: 'Lic. en Trabajo Social',
-    description: 'Gestión ante obras sociales y seguimiento de casos.',
+    description:
+      'Recibida en la Universidad Nacional de Moreno en Trabajo Social. Gestión ante obras sociales y seguimiento de casos.',
   },
 ];
