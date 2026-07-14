@@ -1,9 +1,39 @@
 <app-title title="Servicios" />
 <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
   @for (service of servicesTexts; track service.title; let i = $index) {
-  <div [class]="['card', 'p-3', 'pb-5', 'text-center', colorChange(i)]">
-    <h2 class="text-xl font-semibold mb-3">{{ service.title }}</h2>
-    <p class="text-justify indent-5">{{ service.description }}</p>
-  </div>
+    <button (click)="changeState(service.screen)" [class]="['p-3', 'btn', colorChange(i)]">
+      {{ service.title }}
+    </button>
   }
 </div>
+
+@if (state()) {
+  <div class="hero bg-mauve-50 mt-4 rounded-xl p-3">
+    @switch (state()) {
+      @case (description.autismo) {
+        <description-autismo />
+      }
+      @case (description.tdah) {
+        <description-tdah />
+      }
+      @case (description.tcc) {
+        <description-tcc />
+      }
+      @case (description.aacc) {
+        <description-aacc />
+      }
+      @case (description.toc) {
+        <description-toc />
+      }
+      @case (description.supervisiones) {
+        <description-supervisiones />
+      }
+      @case (description.capacitaciones) {
+        <description-capacitaciones />
+      }
+      @case (description.integrales) {
+        <description-integrales />
+      }
+    }
+  </div>
+}

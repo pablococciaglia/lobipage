@@ -13,166 +13,166 @@
           (actionChange)="setValidators()"
           [myForm]="myForm"
           name="orioeva"
-          question="Elegí la opción que te interesa"
+          question="¿Cómo te gustaría comenzar?"
           [options]="[
             {
               label:
-                'Realizar una entrevista de orientación (si tenés dudas y necesitás te guiemos)',
-              value: formOptions.ORIENTACION
+                'Quiero una entrevista de orientación (Para recibir asesoramiento y definir qé evaluación se ajusta mejor a mis necesidades).',
+              value: formOptions.ORIENTACION,
             },
             {
-              label:
-                'Iniciar una evaluación específica (si ya sabes qué querés realizar la evaluación)',
-              value: formOptions.EVALUACION
-            }
+              label: 'Ya sé qué evaluación necesito (quiero iniciar una evaluación específica).',
+              value: formOptions.EVALUACION,
+            },
           ]"
         />
 
         @if (myForm.value.orioeva) {
+          <!-- Name -->
+          <app-input-text
+            label="Nombre y apellido"
+            [myForm]="myForm"
+            name="name"
+            autocomplete="name"
+          />
 
-        <!-- Name -->
-        <app-input-text
-          label="Nombre y apellido"
-          [myForm]="myForm"
-          name="name"
-          autocomplete="name"
-        />
+          <!-- Email -->
+          <app-input-text
+            label="E-mail"
+            [myForm]="myForm"
+            name="email"
+            type="email"
+            autocomplete="email"
+          />
 
-        <!-- Email -->
-        <app-input-text
-          label="E-mail"
-          [myForm]="myForm"
-          name="email"
-          type="email"
-          autocomplete="email"
-        />
+          <!-- Country -->
+          <app-input-select
+            [myForm]="myForm"
+            name="country"
+            label="País de residencia"
+            [selectOptions]="countries()"
+            defaultOption="-- Selecciona un país --"
+          />
 
-        <!-- Country -->
-        <app-input-select
-          [myForm]="myForm"
-          name="country"
-          label="País de residencia"
-          [selectOptions]="countries()"
-          defaultOption="-- Selecciona un país --"
-        />
+          <!-- Teléfono celular -->
+          <app-input-text
+            label="Teléfono celular"
+            [myForm]="myForm"
+            name="phone"
+            type="tel"
+            autocomplete="phone"
+          />
 
-        <!-- Teléfono celular -->
-        <app-input-text
-          label="Teléfono celular"
-          [myForm]="myForm"
-          name="phone"
-          type="tel"
-          autocomplete="phone"
-        />
+          @if (myForm.value.orioeva === formOptions.ORIENTACION) {
+            <!-- Motivo de consulta -->
+            <app-input-textarea
+              [myForm]="myForm"
+              name="reason"
+              label="¿Cuál es tu motivo de consulta?"
+              placeholder="Breve descripción del motivo de consulta"
+            />
+          } @else {
+            <!-- For you or not -->
+            <app-input-radio
+              [myForm]="myForm"
+              name="appointmentFor"
+              question="¿Buscás turno para vos o para otra persona (ej. tu hijo/a)?"
+              [options]="[
+                { label: 'Para mí', value: 'Para mí' },
+                { label: 'Para otra persona', value: 'Para otra persona' },
+              ]"
+            />
 
-        @if (myForm.value.orioeva === formOptions.ORIENTACION) {
-        <!-- Motivo de consulta -->
-        <app-input-textarea
-          [myForm]="myForm"
-          name="reason"
-          label="¿Cuál es tu motivo de consulta?"
-          placeholder="Breve descripción del motivo de consulta"
-        />
-        } @else {
-        <!-- For you or not -->
-        <app-input-radio
-          [myForm]="myForm"
-          name="appointmentFor"
-          question="¿Buscás turno para vos o para otra persona (ej. tu hijo/a)?"
-          [options]="[
-            { label: 'Para mí', value: 'Para mí' },
-            { label: 'Para otra persona', value: 'Para otra persona' }
-          ]"
-        />
-
-        <!-- Age of the person -->
-        <app-input-number
-          label="Edad"
-          placeholder="Edad de la persona que recibirá la terapia"
-          [myForm]="myForm"
-          name="age"
-        />
-        }}
+            <!-- Age of the person -->
+            <app-input-number
+              label="Edad"
+              placeholder="Edad de la persona que recibirá la terapia"
+              [myForm]="myForm"
+              name="age"
+            />
+          }
+        }
       </div>
       @if (myForm.value.orioeva) {
-      <div class="md:col-span-3 space-y-3">
-        @if (myForm.value.orioeva === formOptions.ORIENTACION) {
-        <!-- For you or not -->
-        <app-input-radio
-          [myForm]="myForm"
-          name="appointmentFor"
-          question="¿Buscás turno para vos o para otra persona (ej. tu hijo/a)?"
-          [options]="[
-            { label: 'Para mí', value: 'Para mí' },
-            { label: 'Para otra persona', value: 'Para otra persona' }
-          ]"
-        />
+        <div class="md:col-span-3 space-y-3">
+          @if (myForm.value.orioeva === formOptions.ORIENTACION) {
+            <!-- For you or not -->
+            <app-input-radio
+              [myForm]="myForm"
+              name="appointmentFor"
+              question="¿Buscás turno para vos o para otra persona (ej. tu hijo/a)?"
+              [options]="[
+                { label: 'Para mí', value: 'Para mí' },
+                { label: 'Para otra persona', value: 'Para otra persona' },
+              ]"
+            />
 
-        <!-- Age of the person -->
-        <app-input-number
-          label="Edad"
-          placeholder="Edad de la persona que recibirá la terapia"
-          [myForm]="myForm"
-          name="age"
-        />
-        } @if (myForm.value.orioeva === formOptions.EVALUACION) {
+            <!-- Age of the person -->
+            <app-input-number
+              label="Edad"
+              placeholder="Edad de la persona que recibirá la terapia"
+              [myForm]="myForm"
+              name="age"
+            />
+          }
+          @if (myForm.value.orioeva === formOptions.EVALUACION) {
+            <!-- Evaluation type -->
+            <app-input-radio
+              [myForm]="myForm"
+              name="evaluationType"
+              question="¿Qué tipo de evaluación deseas realizar?"
+              [options]="[
+                { label: 'Autismo', value: evaluationType.AUTISMO },
+                { label: 'TDAH', value: evaluationType.TDAH },
+                { label: 'Ansiedad', value: evaluationType.ANSIEDAD },
+                { label: 'TOC', value: evaluationType.TOC },
+                { label: 'Otro', value: evaluationType.OTRO },
+              ]"
+            />
 
-        <!-- Evaluation type -->
-        <app-input-radio
-          [myForm]="myForm"
-          name="evaluationType"
-          question="¿Qué tipo de evaluación deseas realizar?"
-          [options]="[
-            { label: 'Autismo', value: evaluationType.AUTISMO },
-            { label: 'TDAH', value: evaluationType.TDAH },
-            { label: 'Ansiedad', value: evaluationType.ANSIEDAD },
-            { label: 'TOC', value: evaluationType.TOC },
-            { label: 'Otro', value: evaluationType.OTRO }
-          ]"
-        />
+            <!-- previous evaluation -->
+            <app-input-radio
+              [myForm]="myForm"
+              name="alreadyEvaluated"
+              question="¿Ya realizaste alguna evaluación previa?"
+              [options]="[
+                { label: 'Sí', value: alreadyEvaluated.YES },
+                { label: 'No', value: alreadyEvaluated.NO },
+              ]"
+            />
+          }
 
-        <!-- previous evaluation -->
-        <app-input-radio
-          [myForm]="myForm"
-          name="alreadyEvaluated"
-          question="¿Ya realizó alguna evaluación previa?"
-          [options]="[
-            { label: 'Sí', value: alreadyEvaluated.YES },
-            { label: 'No', value: alreadyEvaluated.NO }
-          ]"
-        />
-        }
-
-        <!-- Contact Preference -->
-        <app-input-radio
-          [myForm]="myForm"
-          name="contactPreference"
-          question="¿Cuál es tu preferencia de contacto?"
-          [options]="[
-            { label: 'WhatsApp', value: 'WhatsApp' },
-            { label: 'Correo electrónico', value: 'Correo electrónico' }
-          ]"
-        />
-        @if(!submited()){
-        <button
-          class="w-full bg-(--my-color3)/70 px-6 py-3 rounded-md hover:bg-(--my-color3) transition text-(--my-text)"
-          type="submit"
-        >
-          {{
-            myForm.value.orioeva === formOptions.ORIENTACION
-              ? 'QUIERO SOLICITAR ENTREVISTA DE ORIENTACIÓN'
-              : 'QUIERO INICIAR EVALUACIÓN'
-          }}</button
-        >} @else {
-        <alert-success
-          [text]="
-            myForm.value.orioeva === formOptions.ORIENTACION
-              ? 'Te contactaremos para coordinar la entrevista y orientarte sobre el tipo de evaluación más adecuada.'
-              : 'Texto final: Gracias por contactarte. En breve nos comunicaremos para coordinar la fecha y enviar el detalle del proceso.'
-          "
-        />
-        }
-      </div>
+          <!-- Contact Preference -->
+          <app-input-radio
+            [myForm]="myForm"
+            name="contactPreference"
+            question="¿Cuál es tu preferencia de contacto?"
+            [options]="[
+              { label: 'WhatsApp', value: 'WhatsApp' },
+              { label: 'Correo electrónico', value: 'Correo electrónico' },
+            ]"
+          />
+          @if (!submited()) {
+            <button
+              class="w-full bg-(--my-color3) px-6 py-3 rounded-md hover:bg-(--my-color3) transition text-(--my-text)"
+              type="submit"
+            >
+              {{
+                myForm.value.orioeva === formOptions.ORIENTACION
+                  ? 'QUIERO SOLICITAR ENTREVISTA DE ORIENTACIÓN'
+                  : 'QUIERO INICIAR EVALUACIÓN'
+              }}
+            </button>
+          } @else {
+            <alert-success
+              [text]="
+                myForm.value.orioeva === formOptions.ORIENTACION
+                  ? 'Te contactaremos para coordinar la entrevista y orientarte sobre el tipo de evaluación más adecuada.'
+                  : 'Texto final: Gracias por contactarte. En breve nos comunicaremos para coordinar la fecha y enviar el detalle del proceso.'
+              "
+            />
+          }
+        </div>
       }
     </div>
   </fieldset>

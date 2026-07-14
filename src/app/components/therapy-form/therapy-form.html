@@ -59,12 +59,12 @@
           [options]="[
             {
               label: 'Sí, quiero continuar con un profesional',
-              value: admission.YES
+              value: admission.YES,
             },
             {
               label: 'No, necesito hacer la admisión primero',
-              value: admission.NO
-            }
+              value: admission.NO,
+            },
           ]"
         />
       </div>
@@ -77,18 +77,18 @@
           question="¿Tenés diagnóstico?"
           [options]="[
             { label: 'Sí', value: hasDiagnose.HAS_DIAGNOSE },
-            { label: 'No', value: hasDiagnose.NO_DIAGNOSE }
+            { label: 'No', value: hasDiagnose.NO_DIAGNOSE },
           ]"
         />
 
-        @if(myForm.value.hasDiagnose === hasDiagnose.HAS_DIAGNOSE) {
-        <!-- diagnose -->
-        <app-input-text
-          label="¿Qué diagnóstico tiene?"
-          [myForm]="myForm"
-          name="diagnose"
-          autocomplete=""
-        />
+        @if (myForm.value.hasDiagnose === hasDiagnose.HAS_DIAGNOSE) {
+          <!-- diagnose -->
+          <app-input-text
+            label="¿Qué diagnóstico tiene?"
+            [myForm]="myForm"
+            name="diagnose"
+            autocomplete=""
+          />
         }
 
         <!-- For you or not -->
@@ -98,7 +98,7 @@
           question="¿Buscás turno para vos o para otra persona (ej. tu hijo/a)?"
           [options]="[
             { label: 'Para mí', value: appointmentFor.ME },
-            { label: 'Para otra persona', value: appointmentFor.OTHER_PERSON }
+            { label: 'Para otra persona', value: appointmentFor.OTHER_PERSON },
           ]"
         />
 
@@ -117,19 +117,20 @@
           question="¿Cuál es tu preferencia de contacto?"
           [options]="[
             { label: 'WhatsApp', value: contactPreference.WHATSAPP },
-            { label: 'Correo electrónico', value: contactPreference.EMAIL }
+            { label: 'Correo electrónico', value: contactPreference.EMAIL },
           ]"
         />
-        @if(!submited()){
-        <button
-          class="w-full bg-(--my-color3)/70 px-6 py-3 rounded-md hover:bg-(--my-color3) transition text-(--my-text)"
-          type="submit"
-        >
-          QUIERO SOLICITAR UN TURNO</button
-        >} @else {
-        <alert-success
-          text="Gracias por contactarte. Nos comunicaremos por WhatsApp o correo electrónico para coordinar tu turno."
-        />
+        @if (!submited()) {
+          <button
+            class="w-full bg-(--my-color3) px-6 py-3 rounded-md hover:bg-(--my-color3) transition text-(--my-text)"
+            type="submit"
+          >
+            QUIERO SOLICITAR UN TURNO
+          </button>
+        } @else {
+          <alert-success
+            text="Gracias por contactarte. Nos comunicaremos por WhatsApp o correo electrónico para coordinar tu turno."
+          />
         }
       </div>
     </div>
