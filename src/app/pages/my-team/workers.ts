@@ -23,12 +23,10 @@ export const coworkers = [
       'Psicóloga recibida en la Universidad de Buenos Aires. Master en Atención Temprana en la Universidad de Barcelona. Formación en Terapias de Segunda y Tercera Ola. Atención a adolescentes y adultos (TDAH, Crisis Vitales, Depresión)',
   },
   {
-    name: 'Lic. Andrea Achaval',
-    photo:
-      'https://res.cloudinary.com/ddbrs5z8v/image/upload/q_auto/f_auto/v1775513260/andrea_pb50cj.jpg',
+    name: 'Lic. Daniel Stechina',
     diploma: 'Lic. en Psicología',
     description:
-      'Psicóloga recibida en la Universidad Kennedy. Especializada en Trastorno de la Conducta Alimentaria y Dismorfia Corporal. Atención a adolescentes y adultos (TCA, Crisis vitales, Ansiedad, Depresión)',
+      'Psicólogo recibido en la Universidad de Córdoba. Posgrado en Psicología Cognitivo Conductual integrada con neurociencias.',
   },
   {
     name: 'Lic. Micaela Aparicio',
