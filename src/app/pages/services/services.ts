@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, ElementRef, signal, viewChild } from '@angular/core';
 import { Title } from '../../components/title/title';
 import { servicesTexts, Description } from './texts';
 import { Integrales } from './integrales/integrales';
@@ -16,8 +16,12 @@ import { Autismo } from './autismo/autismo';
   templateUrl: './services.html',
 })
 export class Services {
+  private readonly scrollElement = viewChild<ElementRef<HTMLDivElement>>('scrollHere');
   changeState = (state: Description) => {
     this.state.set(state);
+    setTimeout(() => {
+      this.scrollElement()?.nativeElement.scrollIntoView({ behavior: 'smooth' });
+    }, 20);
   };
   servicesTexts = servicesTexts;
   description: typeof Description = Description;
