@@ -1,4 +1,5 @@
-import { Component, ElementRef, signal, viewChild } from '@angular/core';
+import { Component, ElementRef, signal, viewChild, OnInit } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
 import { Title } from '../../components/title/title';
 import { servicesTexts, Description } from './texts';
 import { Integrales } from './integrales/integrales';
@@ -15,7 +16,16 @@ import { Autismo } from './autismo/autismo';
   imports: [Title, Integrales, Capacitaciones, Supervisiones, Tcc, Toc, Aacc, Tdah, Autismo],
   templateUrl: './services.html',
 })
-export class Services {
+export class Services implements OnInit {
+  constructor(private meta: Meta) {}
+
+  ngOnInit(): void {
+    this.meta.updateTag({
+      name: 'description',
+      content:
+        'Descubre nuestros servicios de terapia integral, orientación psicológica y acompañamiento especializado para TEA, TDAH, AACC y otras necesidades. Atención profesional, cercana y personalizada.',
+    });
+  }
   private readonly scrollElement = viewChild<ElementRef<HTMLDivElement>>('scrollHere');
   changeState = (state: Description) => {
     this.state.set(state);

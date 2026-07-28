@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
 import { Title } from '../../components/title/title';
 import { PageLayout } from '../../components/page-layout/page-layout';
 
@@ -7,4 +8,14 @@ import { PageLayout } from '../../components/page-layout/page-layout';
   imports: [Title, PageLayout],
   templateUrl: './about-me.html',
 })
-export class AboutMe {}
+export class AboutMe implements OnInit {
+  constructor(private meta: Meta) {}
+
+  ngOnInit(): void {
+    this.meta.updateTag({
+      name: 'description',
+      content:
+        'Conoce más sobre nuestra trayectoria, enfoque terapéutico y compromiso con el acompañamiento integral para personas y familias. Descubre una atención cercana, profesional y personalizada.',
+    });
+  }
+}
