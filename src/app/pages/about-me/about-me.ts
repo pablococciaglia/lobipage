@@ -15,7 +15,7 @@ export class AboutMe implements OnInit {
     this.meta.updateTag({
       name: 'description',
       content:
-        'Conoce más sobre nuestra trayectoria, enfoque terapéutico y compromiso con el acompañamiento integral para personas y familias. Descubre una atención cercana, profesional y personalizada.',
+        'Conoce más sobre mi trayectoria, enfoque terapéutico y compromiso con el acompañamiento integral para personas y familias. Ayudo a personas neurodivergentes del Diagnóstico al Tratamiento. Descubre una atención cercana, profesional y personalizada.',
     });
   }
 }

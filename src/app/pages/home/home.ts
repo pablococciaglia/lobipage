@@ -16,7 +16,7 @@ export class Home implements OnInit {
     this.meta.updateTag({
       name: 'description',
       content:
-        'Servicios multidisciplinarios de orientación y terapia para transtorno del espectro autista (TEA), trastorno de déficit de atención e hiperactividad (TDAH) y altas capacidades (AACC), con evaluación, acompañamiento y elaboración de informes profesionales.',
+        'Servicios multidisciplinarios de orientación y terapia para transtorno del espectro autista (TEA), trastorno de déficit de atención e hiperactividad (TDAH) y altas capacidades (AACC), neurodivergentes, con evaluación, acompañamiento y elaboración de informes profesionales.',
     });
   }
   formtypes: typeof FormTypes = FormTypes;
