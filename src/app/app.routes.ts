@@ -7,6 +7,7 @@ import { Faq } from './pages/faq/faq';
 import { Contact } from './pages/contact/contact';
 import { MyTeam } from './pages/my-team/my-team';
 import { RoutesPaths } from './interfaces/routes.interface';
+import { Test } from './pages/test/test';
 
 export const routes: Routes = [
   {
@@ -16,6 +17,10 @@ export const routes: Routes = [
   {
     path: RoutesPaths.BLOG,
     component: Blog,
+  },
+  {
+    path: RoutesPaths.TEST,
+    component: Test,
   },
   {
     path: RoutesPaths.ABOUT_ME,

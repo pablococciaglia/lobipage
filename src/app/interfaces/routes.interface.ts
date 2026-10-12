@@ -6,6 +6,7 @@ export enum RoutesPaths {
   HOME = '',
   MY_TEAM = 'mi-equipo',
   SERVICES = 'servicios',
+  TEST = 'test',
 }
 export enum RoutesLabels {
   ABOUT_ME = 'Sobre mí',
@@ -14,6 +15,7 @@ export enum RoutesLabels {
   FAQ = 'Preguntas Frecuentes',
   MY_TEAM = 'Mi Equipo',
   SERVICES = 'Servicios',
+  TEST = 'Test',
 }
 
 export const appRoutes = [
@@ -41,4 +43,5 @@ export const appRoutes = [
     path: RoutesPaths.CONTACT,
     label: RoutesLabels.CONTACT,
   },
+  
 ];
